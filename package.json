@@ -1,0 +1,16 @@
+{
+  "name": "app-runner-codex",
+  "version": "1.0.0",
+  "description": "Test deployment for AWS App Runner",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "keywords": ["app-runner", "hello-world"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
