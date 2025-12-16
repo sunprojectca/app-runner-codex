@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Runner - Results</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .navbar {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        .navbar a:hover {
+            opacity: 0.8;
+        }
+
+        .container {
+            flex: 1;
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 2rem;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .result-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .result-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .result-card h3 {
+            color: #333;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .result-card p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 0.8rem;
+        }
+
+        .status {
+            display: inline-block;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+
+        .status.success {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status.pending {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .status.processing {
+            background: #d1ecf1;
+            color: #0c5460;
+        }
+
+        .metric {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .metric:last-child {
+            border-bottom: none;
+        }
+
+        .metric-label {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .metric-value {
+            color: #333;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html">← Back to Chat</a>
+    </nav>
+
+    <div class="container">
+        <div class="header">
+            <h1>App Runner Results</h1>
+            <p>Your deployment and analysis dashboard</p>
+        </div>
+
+        <div class="results-grid">
+            <div class="result-card">
+                <h3>🚀 Deployment Status</h3>
+                <div class="metric">
+                    <span class="metric-label">Environment</span>
+                    <span class="metric-value">Production</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Region</span>
+                    <span class="metric-value">US-East-1</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Instances</span>
+                    <span class="metric-value">3 Running</span>
+                </div>
+                <span class="status success">Deployed</span>
+            </div>
+
+            <div class="result-card">
+                <h3>📊 Performance Metrics</h3>
+                <div class="metric">
+                    <span class="metric-label">Response Time</span>
+                    <span class="metric-value">124ms</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Uptime</span>
+                    <span class="metric-value">99.9%</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Requests/min</span>
+                    <span class="metric-value">1,247</span>
+                </div>
+                <span class="status success">Healthy</span>
+            </div>
+
+            <div class="result-card">
+                <h3>🔍 Code Analysis</h3>
+                <div class="metric">
+                    <span class="metric-label">Security Score</span>
+                    <span class="metric-value">A+</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Code Quality</span>
+                    <span class="metric-value">95/100</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Test Coverage</span>
+                    <span class="metric-value">87%</span>
+                </div>
+                <span class="status success">Passed</span>
+            </div>
+
+            <div class="result-card">
+                <h3>⚙️ Build Information</h3>
+                <div class="metric">
+                    <span class="metric-label">Build Time</span>
+                    <span class="metric-value">2m 34s</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Version</span>
+                    <span class="metric-value">v1.2.4</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Commit</span>
+                    <span class="metric-value">a3f4b2c</span>
+                </div>
+                <span class="status success">Complete</span>
+            </div>
+
+            <div class="result-card">
+                <h3>📦 Dependencies</h3>
+                <div class="metric">
+                    <span class="metric-label">Total Packages</span>
+                    <span class="metric-value">142</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Vulnerabilities</span>
+                    <span class="metric-value">0 Critical</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Updates Available</span>
+                    <span class="metric-value">3 Minor</span>
+                </div>
+                <span class="status success">Secure</span>
+            </div>
+
+            <div class="result-card">
+                <h3>🔄 Auto-Scaling</h3>
+                <div class="metric">
+                    <span class="metric-label">Current Load</span>
+                    <span class="metric-value">64%</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Min Instances</span>
+                    <span class="metric-value">2</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Max Instances</span>
+                    <span class="metric-value">10</span>
+                </div>
+                <span class="status processing">Active</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
